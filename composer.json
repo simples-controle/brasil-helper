@@ -1,6 +1,6 @@
     {
         "name": "sururulab/brasil-helper",
-        "description": "Este pacote foi criado apenas para complementar o post no Tableless",
+        "description": "Brasil Helper é um projeto open source que empacota via pacote composer um poderoso helper de utilidades para quem desenvolve software para regionalização do Brasil.",
         "authors": [ 
             {
                 "name": "Lucas Barros aka lukbarros",
