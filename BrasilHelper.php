@@ -1,5 +1,5 @@
 <?php
-namespace backend\models;
+namespace sururulab\BrasilHelper;
 
 /**
 * Brasil Helper é um projeto open source que empacota via pacote composer um poderoso
