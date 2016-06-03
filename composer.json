@@ -1,19 +1,13 @@
-"repositories": [
-    {
-        "type": "package",
-        "package": {
-            "name": "sururuLab/BrasilHelper",
-            "version": "dev-master",
-            "source": {
-                "url": "git://github.com/sururuLab/BrasilHelper.git",
-                "type": "git",
-                "reference": "master"
-            },
-            "autoload": {
-                "psr-0" : {
-                    "Weaverryan\\DangerZone" : "src"
-                }
-            }
+{
+    "name": "sururulaba/brasil-helper",
+    "description": "Brasil Helper é um projeto open source que empacota via pacote composer um poderoso helper de utilidades para quem desenvolve software para regionalização do Brasil.",
+    "type": "git",
+    "authors": [
+        {
+            "name": "lucas",
+            "email": "lucas@cloudic.com.br"
         }
-    }
-],
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
