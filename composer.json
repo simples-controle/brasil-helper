@@ -1,33 +1,13 @@
-{
-    "name": "sururulab/brasil-helper",
-    "description": "Brasil Helper é um projeto open source que empacota via pacote composer um poderoso helper de utilidades para quem desenvolve software para regionalização do Brasil.",
-    "type": "git",
-    "authors": [
-        {
-            "name": "lucas",
-            "email": "lucas@cloudic.com.br"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "repositories": [
     {
-        "type": "package",
-        "package": {
-            "name": "sururulab/brasil-helper",
-            "version": "dev-master",
-            "source": {
-                "url": "git://github.com/sururulab/brasil-helper.git",
-                "type": "git",
-                "reference": "master"
-            },
-            "autoload": {
-                "psr-0" : {
-                    "SururuLab\\BrasilHelper" : ""
-                }
+        "name": "sururulab/brasil-helper",
+        "description": "Este pacote foi criado apenas para complementar o post no Tableless",
+        "authors": [ 
+            {
+                "name": "Lucas Barros aka lukbarros",
+                "email": "lucas@cloudic.com.br"
             }
+        ],
+        "require": {
+             "php": ">=5.3.17"
         }
-    }
-    ],
-
-}
+     }
