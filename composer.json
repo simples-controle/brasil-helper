@@ -1,0 +1,19 @@
+"repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "sururuLab/BrasilHelper",
+            "version": "dev-master",
+            "source": {
+                "url": "git://github.com/sururuLab/BrasilHelper.git",
+                "type": "git",
+                "reference": "master"
+            },
+            "autoload": {
+                "psr-0" : {
+                    "Weaverryan\\DangerZone" : "src"
+                }
+            }
+        }
+    }
+],
