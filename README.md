@@ -37,7 +37,7 @@ echo BrasilHelper::checkCPF('635.850.266-21');
 
 echo BrasilHelper::checkIE('0136042371217', 'AC');
 
-echo $BrasilHelper::estados();
+echo BrasilHelper::estados();
 ```
 
 ### Exemplo teste CNPJ válido
@@ -49,7 +49,7 @@ use sururulab\BrasilHelper\BrasilHelper;
 if(BrasilHelper::checkCNPJ('23.419.212/0001-03')){
 	echo 'Válido';
 }else{
-	echo 'Não Válido'
+	echo 'Não Válido';
 }
 ```
 
@@ -62,12 +62,12 @@ use sururulab\BrasilHelper\BrasilHelper;
 if(BrasilHelper::checkCPF('635.850.266-21')){
 	echo 'Válido';
 }else{
-	echo 'Não Válido'
+	echo 'Não Válido';
 }
 ```
 
 ## Contribua
 
-Pull Requests são muito bem vindos!
+Pull Request's são muito bem vindos!
 
 
