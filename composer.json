@@ -9,5 +9,25 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "sururulab/brasil-helper",
+            "version": "dev-master",
+            "source": {
+                "url": "git://github.com/sururulab/brasil-helper.git",
+                "type": "git",
+                "reference": "master"
+            },
+            "autoload": {
+                "psr-0" : {
+                    "SururuLab\\BrasilHelper" : ""
+                }
+            }
+        }
+    }
+    ],
+
 }
