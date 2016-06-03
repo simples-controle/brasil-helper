@@ -14,7 +14,7 @@ php composer require sururulab/brasil-helper
 Ou adicione a linha abaixo ao seu composer.json na seção require.  
 
 ```php
-"webvimark/module-user-management": "1.0.4"
+"sururulab/brasil-helper": "dev-master"
 ```
 
 e rode:
