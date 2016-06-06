@@ -59,12 +59,12 @@ class BrasilHelper
             //Etapa 2: Conta os dígitos, um Cnpj válido possui 14 dígitos numéricos.
             if(count($num)!=14)
                 {
-                    $isCnpjValid=false;
+                    return false;
                 }
             //Etapa 3: O número 00000000000 embora não seja um cnpj real resultaria um cnpj válido após o calculo dos dígitos verificares e por isso precisa ser filtradas nesta etapa.
             if ($num[0]==0 && $num[1]==0 && $num[2]==0 && $num[3]==0 && $num[4]==0 && $num[5]==0 && $num[6]==0 && $num[7]==0 && $num[8]==0 && $num[9]==0 && $num[10]==0 && $num[11]==0)
                 {
-                    $isCnpjValid=false;
+                    return false;
                 }
             //Etapa 4: Calcula e compara o primeiro dígito verificador.
             else
@@ -94,7 +94,7 @@ class BrasilHelper
                         }
                     if($dg!=$num[12])
                         {
-                            $isCnpjValid=false;
+                            return false;
                         } 
                 }
             //Etapa 5: Calcula e compara o segundo dígito verificador.
@@ -125,11 +125,11 @@ class BrasilHelper
                         }
                     if($dg!=$num[13])
                         {
-                            $isCnpjValid=false;
+                            return false;
                         }
                     else
                         {
-                            $isCnpjValid=true;
+                            return true;
                         }
                 }
             //Trecho usado para depurar erros.
