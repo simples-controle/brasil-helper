@@ -46,7 +46,7 @@ class BrasilHelper
      
      public static function checkCNPJ($cnpj)
         {
-            $num = 0;
+            $num = array();
             
             //Etapa 1: Cria um array com apenas os digitos numéricos, isso permite receber o cnpj em diferentes formatos como "00.000.000/0000-00", "00000000000000", "00 000 000 0000 00" etc...
             $j=0;
