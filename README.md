@@ -38,6 +38,9 @@ echo BrasilHelper::checkCPF('635.850.266-21');
 echo BrasilHelper::checkIE('0136042371217', 'AC');
 
 var_dump(BrasilHelper::estados());
+
+var_dump(BrasilHelper::bancosBrasileiros());
+
 ```
 
 ### Exemplo teste CNPJ válido
