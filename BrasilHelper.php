@@ -46,6 +46,8 @@ class BrasilHelper
      
      public static function checkCNPJ($cnpj)
         {
+            $num = 0;
+            
             //Etapa 1: Cria um array com apenas os digitos numéricos, isso permite receber o cnpj em diferentes formatos como "00.000.000/0000-00", "00000000000000", "00 000 000 0000 00" etc...
             $j=0;
             for($i=0; $i<(strlen($cnpj)); $i++)
@@ -369,7 +371,7 @@ class BrasilHelper
         	array('code' => '755', 'name' => 'Banco Merrill Lynch'),
         	array('code' => '756', 'name' => 'Banco Cooperativo do Brasil'),
         	array('code' => '757', 'name' => 'KEB'),
-        )
+        );
     }
     
     
