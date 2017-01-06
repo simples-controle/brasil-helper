@@ -152,7 +152,7 @@ class BrasilHelper
     /**
      * gerar CNPJ randômico
      *
-     * @author Artur Cesar <arturcesar@hotmail.com/w>
+     * @author Artur Cesar <arturcesar@hotmail.com/artur.cesar@mam.bo>
      * @param boolean $compontos
      * @return string
      *
