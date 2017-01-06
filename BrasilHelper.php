@@ -150,7 +150,7 @@ class BrasilHelper
         }
 
     /**
-     * gerar CNPK randômico
+     * gerar CNPJ randômico
      *
      * @author Artur Cesar <arturcesar@hotmail.com/w>
      * @param boolean $compontos
