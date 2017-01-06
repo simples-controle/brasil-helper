@@ -74,17 +74,34 @@
         width: 100%;
         background-color: transparent;
       }
+      footer{
+        width: 100%;
+        background-color: #EEE;
+        height: 80px;
+        margin-top: 30px;
+        padding: 15px;
+        text-align: left;
+      }
     </style>
   </head>
   <body style="background-color: #f5f5f5">
-    <?php
     // Report all PHP errors
-    ini_set('display_errors', 0);
-    ini_set('display_startup_errors', 0);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
+    <?php
+    
     include('BrasilHelper.php');
+
     include('lib/pierophp/InscricaoEstadual.php');
+
     $BrasilHelper = new sururulab\BrasilHelper\BrasilHelper();
+
+    $estado = $BrasilHelper->estado("AL");
+
+    var_dump($estado->cidades);
+
     ?>
 
     <div class="container">
@@ -136,9 +153,29 @@
                   ...
               </div>
           </div>
+
+          <h3>Cidades Brasileiras por Estado</h3>
+          <hr>
+
+          <div class="col-md-12 box-demonstration">
+              <div class="col-md-6">
+                  <img src="imgs/forek.png" class="img-rounded img-responsive" alt="Cinque Terre">
+              </div>
+              <div  class="col-md-6 box-demonstration" style="font-weight: normal;">
+                  <p>Acre</p>
+                  <p>Alagoas</p>
+                  <p>Amazonas</p>
+                  <p>Amapá</p>
+                  ...
+              </div>
+          </div>
           <div class="clearfix"></div>
         </div>
       </div>
     </div>
+
+    <footer>
+     <p class="text-muted">  Copyright  ©  <a href="https://www.facebook.com/sururulab/">sururulab</a> <?=date('Y') ?> Copyright Holder All Rights Reserved. </p>
+    </footer>
   </body>
 </html>
