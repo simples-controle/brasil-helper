@@ -91,7 +91,7 @@
     error_reporting(E_ALL);
 
     <?php
-    
+
     include('BrasilHelper.php');
 
     include('lib/pierophp/InscricaoEstadual.php');
@@ -159,14 +159,10 @@
 
           <div class="col-md-12 box-demonstration">
               <div class="col-md-6">
-                  <img src="imgs/forek.png" class="img-rounded img-responsive" alt="Cinque Terre">
+                  <img src="imgs/cidades.png" class="img-rounded img-responsive" alt="Cinque Terre">
               </div>
               <div  class="col-md-6 box-demonstration" style="font-weight: normal;">
-                  <p>Acre</p>
-                  <p>Alagoas</p>
-                  <p>Amazonas</p>
-                  <p>Amapá</p>
-                  ...
+                  <img src="imgs/vardump.png" class="img-rounded img-responsive" alt="Cinque Terre">
               </div>
           </div>
           <div class="clearfix"></div>
