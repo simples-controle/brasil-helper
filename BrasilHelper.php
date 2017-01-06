@@ -5,7 +5,7 @@ use sururulab\BrasilHelper\lib\pierophp\InscricaoEstadual;
 
 /**
 * Brasil Helper é um projeto open source que empacota via pacote composer um poderoso helper de utilidades para quem desenvolve software para regionalização do Brasil.
-* 
+*
 */
 class BrasilHelper
 {
@@ -17,7 +17,7 @@ class BrasilHelper
     }
     /**
      * Estados Brasileiros
-     * 
+     *
      * @author Lucas Barros <lucas@cloudic.com.br>
      * @return array Lista de estados sigla => nome
      *
@@ -29,7 +29,7 @@ class BrasilHelper
     /**
      * Valida CNPJ
      *
-     * Esta função testa se um Cnpj é valido ou não. 
+     * Esta função testa se um Cnpj é valido ou não.
      *
      * @author  Raoni Botelho Sporteman <raonibs@gmail.com>
      * @version 1.0 Debugada em 27/09/2011 no PHP 5.3.8
@@ -43,11 +43,11 @@ class BrasilHelper
      * @return  boolean                     "true" se o Cnpj é válido ou "false" caso o contrário
      *
      */
-     
+
      public static function checkCNPJ($cnpj)
         {
             $num = array();
-            
+
             //Etapa 1: Cria um array com apenas os digitos numéricos, isso permite receber o cnpj em diferentes formatos como "00.000.000/0000-00", "00000000000000", "00 000 000 0000 00" etc...
             $j=0;
             for($i=0; $i<(strlen($cnpj)); $i++)
@@ -84,8 +84,8 @@ class BrasilHelper
                             $multiplica[$i]=$num[$i]*$j;
                             $j--;
                         }
-                    $soma = array_sum($multiplica); 
-                    $resto = $soma%11;          
+                    $soma = array_sum($multiplica);
+                    $resto = $soma%11;
                     if($resto<2)
                         {
                             $dg=0;
@@ -97,7 +97,7 @@ class BrasilHelper
                     if($dg!=$num[12])
                         {
                             return false;
-                        } 
+                        }
                 }
             //Etapa 5: Calcula e compara o segundo dígito verificador.
             if(!isset($isCnpjValid))
@@ -115,8 +115,8 @@ class BrasilHelper
                             $multiplica[$i]=$num[$i]*$j;
                             $j--;
                         }
-                    $soma = array_sum($multiplica); 
-                    $resto = $soma%11;          
+                    $soma = array_sum($multiplica);
+                    $resto = $soma%11;
                     if($resto<2)
                         {
                             $dg=0;
@@ -146,22 +146,68 @@ class BrasilHelper
                 }
             */
             //Etapa 6: Retorna o Resultado em um valor booleano.
-            return $isCnpjValid;            
+            return $isCnpjValid;
         }
 
     /**
+     * gerar CNPK randômico
+     *
+     * @author Artur Cesar <arturcesar@hotmail.com/w>
+     * @param boolean $compontos
+     * @return string
+     *
+     */
+    public static function makeCNPJ($compontos = false){
+        $n1 = rand(0,9);
+        $n2 = rand(0,9);
+        $n3 = rand(0,9);
+        $n4 = rand(0,9);
+        $n5 = rand(0,9);
+        $n6 = rand(0,9);
+        $n7 = rand(0,9);
+        $n8 = rand(0,9);
+
+        $n9 = 0;
+        $n10= 0;
+        $n11= 0;
+        $n12= 1;
+
+        $d1 = $n12*2+$n11*3+$n10*4+$n9*5+$n8*6+$n7*7+$n6*8+$n5*9+$n4*2+$n3*3+$n2*4+$n1*5;
+        $d1 = 11 - ( self::mod($d1,11) );
+
+        if ( $d1 >= 10 ){
+           $d1 = 0 ;
+        }
+
+        $d2 = $d1*2+$n12*3+$n11*4+$n10*5+$n9*6+$n8*7+$n7*8+$n6*9+$n5*2+$n4*3+$n3*4+$n2*5+$n1*6;
+        $d2 = 11 - ( self::mod($d2,11) );
+
+        if ($d2>=10) {
+           $d2 = 0;
+        }
+
+        $retorno = '';
+        if ($compontos==1) {
+          $retorno = ''.$n1.$n2.".".$n3.$n4.$n5.".".$n6.$n7.$n8."/".$n9.$n10.$n11.$n12."-".$d1.$d2;
+        } else {
+          $retorno = ''.$n1.$n2.$n3.$n4.$n5.$n6.$n7.$n8.$n9.$n10.$n11.$n12.$d1.$d2;
+        }
+        return $retorno;
+    }
+
+    /**
      * Valida CPF (original valida_cpf() by Luiz Otávio)
-     * 
-     * @author Luiz Otávio Miranda <contato@todoespacoonline.com/w> 
+     *
+     * @author Luiz Otávio Miranda <contato@todoespacoonline.com/w>
      * @param string $cpf O CPF com ou sem pontos e traço
      * @return bool True para CPF correto - False para CPF incorreto
      *
      */
     public static function checkCPF( $cpf = false ) {
         // Exemplo de CPF: 025.462.884-23
-        
+
         /**
-         * Multiplica dígitos vezes posições 
+         * Multiplica dígitos vezes posições
          *
          * @param string $digitos Os digitos desejados
          * @param int $posicoes A posição que vai iniciar a regressão
@@ -172,7 +218,7 @@ class BrasilHelper
         if ( ! function_exists('calc_digitos_posicoes') ) {
             function calc_digitos_posicoes( $digitos, $posicoes = 10, $soma_digitos = 0 ) {
                 // Faz a soma dos dígitos com a posição
-                // Ex. para 10 posições: 
+                // Ex. para 10 posições:
                 //   0    2    5    4    6    2    8    8   4
                 // x10   x9   x8   x7   x6   x5   x4   x3  x2
                 //   0 + 18 + 40 + 28 + 36 + 10 + 32 + 24 + 8 = 196
@@ -180,11 +226,11 @@ class BrasilHelper
                     $soma_digitos = $soma_digitos + ( $digitos[$i] * $posicoes );
                     $posicoes--;
                 }
-         
+
                 // Captura o resto da divisão entre $soma_digitos dividido por 11
                 // Ex.: 196 % 11 = 9
                 $soma_digitos = $soma_digitos % 11;
-         
+
                 // Verifica se $soma_digitos é menor que 2
                 if ( $soma_digitos < 2 ) {
                     // $soma_digitos agora será zero
@@ -195,41 +241,41 @@ class BrasilHelper
                     // Nosso dígito procurado é 2
                     $soma_digitos = 11 - $soma_digitos;
                 }
-         
+
                 // Concatena mais um dígito aos primeiro nove dígitos
                 // Ex.: 025462884 + 2 = 0254628842
                 $cpf = $digitos . $soma_digitos;
-                
+
                 // Retorna
                 return $cpf;
             }
         }
-        
+
         // Verifica se o CPF foi enviado
         if ( ! $cpf ) {
             return false;
         }
-     
+
         // Remove tudo que não é número do CPF
         // Ex.: 025.462.884-23 = 02546288423
         $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-     
+
         // Verifica se o CPF tem 11 caracteres
         // Ex.: 02546288423 = 11 números
         if ( strlen( $cpf ) != 11 ) {
             return false;
-        }   
-     
+        }
+
         // Captura os 9 primeiros dígitos do CPF
         // Ex.: 02546288423 = 025462884
         $digitos = substr($cpf, 0, 9);
-        
+
         // Faz o cálculo dos 9 primeiros dígitos do CPF para obter o primeiro dígito
         $novo_cpf = calc_digitos_posicoes( $digitos );
-        
+
         // Faz o cálculo dos 10 dígitos do CPF para obter o último dígito
         $novo_cpf = calc_digitos_posicoes( $novo_cpf, 11 );
-        
+
         // Verifica se o novo CPF gerado é idêntico ao CPF enviado
         if ( $novo_cpf === $cpf ) {
             // CPF válido
@@ -239,7 +285,43 @@ class BrasilHelper
             return false;
         }
     }
-    
+
+    /**
+     * Gerar CPF randômico
+     *
+     * @author Artur Cesar <arturcesar@hotmail.com/w>
+     * @param boolean $compontos com ou sem pontos e traço
+     * @return string
+     *
+     */
+    public function makeCPF($compontos = false){
+          return self::makeStaticCPF($compontos);
+    }
+
+    public static function makeStaticCPF($compontos = false){
+        $n1 = rand(0,9);
+        $n2 = rand(0,9);
+        $n3 = rand(0,9);
+        $n4 = rand(0,9);
+        $n5 = rand(0,9);
+        $n6 = rand(0,9);
+        $n7 = rand(0,9);
+        $n8 = rand(0,9);
+        $n9 = rand(0,9);
+        $d1 = $n9*2+$n8*3+$n7*4+$n6*5+$n5*6+$n4*7+$n3*8+$n2*9+$n1*10;
+        $d1 = 11 - ( self::mod($d1,11) );
+        if ( $d1 >= 10 )
+        { $d1 = 0 ;
+        }
+        $d2 = $d1*2+$n9*3+$n8*4+$n7*5+$n6*6+$n5*7+$n4*8+$n3*9+$n2*10+$n1*11;
+        $d2 = 11 - ( self::mod($d2,11) );
+        if ($d2>=10) { $d2 = 0 ;}
+        $retorno = '';
+        if ($compontos==1) {$retorno = ''.$n1.$n2.$n3.".".$n4.$n5.$n6.".".$n7.$n8.$n9."-".$d1.$d2;}
+        else {$retorno = ''.$n1.$n2.$n3.$n4.$n5.$n6.$n7.$n8.$n9.$d1.$d2;}
+        return $retorno;
+    }
+
     public static function bancosBrasileiros()
     {
         return array(
@@ -373,20 +455,34 @@ class BrasilHelper
         	array('code' => '757', 'name' => 'KEB'),
         );
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public static function mod($dividendo,$divisor)
+    {
+      return round($dividendo - (floor($dividendo/$divisor)*$divisor));
+    }
+
+
+
+
+  public function __call($name, $arguments) {
+       if ($name === 'makeCPF') {
+           call_user_func(array($this, 'makeCPF'));
+       }
+   }
+
+   public static function __callStatic($name, $arguments) {
+       if ($name === 'makeCPF') {
+           call_user_func(array($this, 'makeStaticCPF'), $arguments[0]);
+       }
+   }
+
+
+
+
+
+
+
+
+
+
 }
