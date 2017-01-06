@@ -98,10 +98,6 @@
 
     $BrasilHelper = new sururulab\BrasilHelper\BrasilHelper();
 
-    $estado = $BrasilHelper->estado("AL");
-
-    var_dump($estado->cidades);
-
     ?>
 
     <div class="container">
