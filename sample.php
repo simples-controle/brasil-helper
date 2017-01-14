@@ -85,17 +85,22 @@
     </style>
   </head>
   <body style="background-color: #f5f5f5">
-    <?php
     // Report all PHP errors
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
+    <?php
 
     include('BrasilHelper.php');
 
     include('lib/pierophp/InscricaoEstadual.php');
 
     $BrasilHelper = new sururulab\BrasilHelper\BrasilHelper();
+
+    $estado = $BrasilHelper->estado("AL");
+
+    var_dump($estado->cidades);
 
     ?>
 
@@ -157,7 +162,7 @@
                   <img src="imgs/cidades.png" class="img-rounded img-responsive" alt="Cinque Terre">
               </div>
               <div  class="col-md-6 box-demonstration" style="font-weight: normal;">
-                  <img src="imgs/vardump.png" class="img-rounded img-responsive" alt="Cinque Terre">
+                  <img src="imgs/vardum.png" class="img-rounded img-responsive" alt="Cinque Terre">
               </div>
           </div>
           <div class="clearfix"></div>

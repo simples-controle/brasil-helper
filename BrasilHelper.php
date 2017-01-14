@@ -305,11 +305,8 @@ class BrasilHelper
      * @return string
      *
      */
-    public function makeCPF($compontos = false){
-          return self::makeStaticCPF($compontos);
-    }
 
-    public static function makeStaticCPF($compontos = false){
+    public static function makeCPF($compontos = false){
         $n1 = rand(0,9);
         $n2 = rand(0,9);
         $n3 = rand(0,9);
@@ -471,21 +468,6 @@ class BrasilHelper
     {
       return round($dividendo - (floor($dividendo/$divisor)*$divisor));
     }
-
-
-
-
-  public function __call($name, $arguments) {
-       if ($name === 'makeCPF') {
-           call_user_func(array($this, 'makeCPF'));
-       }
-   }
-
-   public static function __callStatic($name, $arguments) {
-       if ($name === 'makeCPF') {
-           call_user_func(array($this, 'makeStaticCPF'), $arguments[0]);
-       }
-   }
 }
 
 class Estado{
